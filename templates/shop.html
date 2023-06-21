@@ -2,23 +2,26 @@
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container">
+    <div class="row shop-title">
+        <h2>Listings</h2>
+    </div>
     <div class="row">
         <div class="col-12 mt-4 left">
             <div class="row">
                 {% for product in product_list%}
-                    <div class="col-md-4">
-                        <div class="card mb-4">
+                    <div class="col-md-3">
+                        <div class="card md-3">
                             <div class="card-body">
                                 {% if "placeholder" in product.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="#">
+                                    src="https://asset.cloudinary.com/dowbhp8px/7e8567f6a714f3fa2b06de300982d769">
                                 {% else %}
                                 <img class="card-img-top"
                                     src=" {{ product.featured_image.url }} ">
                                 {% endif %}
                             </div>
-                            <a href="#" class="product-link">
+                            <a href="{% url 'product_detail' product.slug %}" class="product-link">
                                 <h2 class="card-title">{{ product.name }}</h2>
                                 <p class="card-text">${{ product.price }}</p>
                             </a>
