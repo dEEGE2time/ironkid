@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-deege2time-ironkid-mjf6zdsb6a.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['8000-deege2time-ironkid-37tnl4kbb5m.ws-eu106.gitpod.io']
 
 
 # Application definition
