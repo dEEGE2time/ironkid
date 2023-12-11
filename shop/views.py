@@ -1,6 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .models import Product
+from .forms import ProductForm
 
 
 class ProductList(generic.ListView):
@@ -25,3 +29,20 @@ class ProductDetails(View):
                 'comments': comments, 
             },
         )
+
+
+class AddProduct(LoginRequiredMixin, generic.CreateView):
+    """
+    Add product view
+    """
+    template_name = '../templates/add_product.html'
+    model = Product
+    form_class = ProductForm
+    
+    success_url = '/'
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(AddProduct, self).form_valid(form)
+    
+    

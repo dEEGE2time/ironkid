@@ -31,6 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-deege2time-ironkid-ysc3rlwzng7.ws-eu106.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-deege2time-ironkid-ysc3rlwzng7.ws-eu106.gitpod.io']
 
 
 # Application definition
@@ -45,14 +46,34 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
-    'cloudinary',
     'django_summernote',
+    
+    # Apps
     'shop',
+    
+    # Other
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'cloudinary',
+    'cloudinary_storage',
+    'djrichtextfield'
 ]
 
 SITE_ID = 1
+
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//cdn.ckeditor.com/4.14.0/standard/ckeditor.js'],
+    'init_template': 'djrichtextfield/init/ckeditor.js',
+    'settings': {
+        'toolbar': [
+            ['Format', 'Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList'], ['Undo', 'Redo'],
+            ['Maximize']
+        ],
+        'format_tags': 'p;h1;h2;h3'
+    }
+}
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -82,9 +103,16 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field'
+            ]
         },
     },
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 WSGI_APPLICATION = 'ironkid.wsgi.application'
 

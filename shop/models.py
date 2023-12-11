@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.utils.text import slugify
 
 STATUS = ((0, 'Out of Stock'), (1, 'In Stock'))
 CATEGORY = ((0, 'Tops'), (1, 'Pants'), (3, 'Accessories'), (3, 'Artwork'))
@@ -19,6 +20,10 @@ class Product(models.Model):
     
     def __str__(self):
         return self.name
+    
+    def save(self,*args,**kwargs):
+        self.slug=slugify(self.name)
+        super(Product,self).save(*args,**kwargs)
 
 
 class Comment(models.Model):
