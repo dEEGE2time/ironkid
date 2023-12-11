@@ -16,16 +16,12 @@ class ProductDetails(View):
         queryset = Product.objects.filter(status=1)
         product = get_object_or_404(queryset, slug=slug)
         comments = product.comments.filter(approved=True).order_by('created_on')
-        bookmarked = False
-        if product.bookmarks.filter(id=self.request.user.id).exists():
-            bookmarked = True
 
         return render(
             request,
             'product_detail.html',
             {
                 'product': product,
-                'comments': comments,
-                'bookmarked': bookmarked   
+                'comments': comments, 
             },
         )

@@ -15,7 +15,7 @@ class ProductAdmin(SummernoteModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_filter = ('approved', 'created_on')
-    list_display = ('username', 'body', 'post', 'created_on', 'approved')
+    list_display = ('username', 'body', 'product', 'created_on', 'approved')
     search_fields = ['username', 'email', 'body']
     actions = ['approved_comments',]
 
