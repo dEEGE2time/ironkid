@@ -4,30 +4,33 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0001_initial'),
+        ("shop", "0001_initial"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='product',
-            old_name='content',
-            new_name='description',
+            model_name="product",
+            old_name="content",
+            new_name="description",
         ),
         migrations.AddField(
-            model_name='product',
-            name='category',
-            field=models.IntegerField(choices=[(0, 'Tops'), (1, 'Pants'), (3, 'Accessories')], default=0),
+            model_name="product",
+            name="category",
+            field=models.IntegerField(
+                choices=[(0, "Tops"), (1, "Pants"), (3, "Accessories")], default=0
+            ),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='price',
+            model_name="product",
+            name="price",
             field=models.FloatField(),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='status',
-            field=models.IntegerField(choices=[(0, 'In Stock'), (1, 'Out of Stock')], default=0),
+            model_name="product",
+            name="status",
+            field=models.IntegerField(
+                choices=[(0, "In Stock"), (1, "Out of Stock")], default=0
+            ),
         ),
     ]

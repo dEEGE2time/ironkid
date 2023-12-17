@@ -6,6 +6,7 @@
             <div class="col-md-6 masthead-text">
                 <h1 class="post-title">{{ product.name }}</h1>
                 <p class="post-subtitle">${{ product.price }}</p>
+                <p class="post-subtitle">Size: {{ product.size }}</p>
                 <button class="btn btn-dark primary mt-5">BUY</button>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
@@ -15,6 +16,12 @@
                 <img src=" {{ product.featured_image.url }}" width="100%">
                 {% endif %}
             </div>
+            {% if user.is_superuser %}
+            <div class="text-center">
+                <a href="" class="btn btn-dark w-25">Edit</a>
+                <a href="{% url 'delete_product' product.slug %}" class="btn btn-dark w-25">Delete</a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>

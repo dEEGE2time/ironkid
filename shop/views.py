@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import (
+    UserPassesTestMixin, LoginRequiredMixin
+)
 
 from .models import Product
 from .forms import ProductForm
@@ -45,4 +47,12 @@ class AddProduct(LoginRequiredMixin, generic.CreateView):
         form.instance.user = self.request.user
         return super(AddProduct, self).form_valid(form)
     
+
+class DeleteProduct(generic.DeleteView):
+    """
+    Delete a product
+    """
+    model = Product
+    success_url = '/'
+    template_name = 'product_confirm_delete.html'
     
