@@ -5,14 +5,17 @@ from django.utils.text import slugify
 
 STATUS = ((0, 'Out of Stock'), (1, 'In Stock'))
 CATEGORY = ((0, 'Tops'), (1, 'Pants'), (3, 'Accessories'), (3, 'Artwork'))
+SIZES = ((0, 'XS'), (1, 'S'), (2, 'M'), (3, 'L'), (4, 'XL'), (5, 'XXL'))
 
 class Product(models.Model):
     name = models.CharField(max_length=80, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     category = models.IntegerField(choices=CATEGORY, default=0)
+    size = models.IntegerField(choices=SIZES, default=0)
     price = models.FloatField()
     description = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
+    image_alt = models.CharField(max_length=100, null=False, blank=False)
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:

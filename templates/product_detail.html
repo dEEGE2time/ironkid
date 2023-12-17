@@ -5,13 +5,14 @@
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <h1 class="post-title">{{ product.name }}</h1>
-                <p class="post-subtitle">{{ product.price }}</p>
+                <p class="post-subtitle">${{ product.price }}</p>
+                <button class="btn btn-dark primary mt-5">BUY</button>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
                 <img src="https://asset.cloudinary.com/dowbhp8px/7e8567f6a714f3fa2b06de300982d769" width="100%">
                 {% else %}
-                <img src=" {{ post.featured_image.url }}" width="100%">
+                <img src=" {{ product.featured_image.url }}" width="100%">
                 {% endif %}
             </div>
         </div>
