@@ -55,4 +55,13 @@ class DeleteProduct(generic.DeleteView):
     model = Product
     success_url = '/'
     template_name = 'product_confirm_delete.html'
-    
+
+
+class EditProduct(generic.UpdateView):
+    """
+    Update a product
+    """
+    template_name = 'edit_product.html'
+    model = Product
+    form_class = ProductForm
+    success_url = '/'
