@@ -4,10 +4,19 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <h1 class="post-title">{{ product.name }}</h1>
-                <p class="post-subtitle">${{ product.price }}</p>
-                <p class="post-subtitle">Size: {{ product.size }}</p>
-                <button class="btn btn-dark primary mt-5">BUY</button>
+                <div class="container px-5 align-middle">
+                    <div class="text-center">
+                        <h5 class="post-title">{{ product.name }}</h1>
+                            <p class="post-subtitle">$ {{ product.price }}</p>
+                            <p class="post-subtitle">{{ product.description | safe }}</p>
+                    </div>
+                    <hr>
+                    <p class="post-subtitle">Size: {{ product.size }}</p>
+                    <div class="text-center">
+                        <button class="btn btn-dark primary mt-5 w-100">BUY</button>
+                    </div>
+                </div>
+
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
@@ -17,61 +26,11 @@
                 {% endif %}
             </div>
             {% if user.is_superuser %}
-            <div class="text-center">
+            <div class="text-center my-5">
                 <a href="{% url 'edit_product' product.slug %}" class="btn btn-dark w-25">Edit</a>
                 <a href="{% url 'delete_product' product.slug %}" class="btn btn-dark w-25">Delete</a>
             </div>
             {% endif %}
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <p class="card-text ">
-                    {{ product.description | safe }}
-                </p>
-                <div class="row">
-
-                    <div class="col-1">
-                        <strong class="text-secondary"> {{ product.number_of_likes }} </strong>
-                    </div>
-                    <div class="col-1">
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"> {{ total_comments }} </strong>
-                        {% endwith %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Comments:</h3>
-            <div class="card-body">
-                {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    {{ comment.body | linebreaks }}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
-            <div class="card-body">
-            </div>
         </div>
     </div>
 </div>

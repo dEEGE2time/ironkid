@@ -21,8 +21,8 @@
                                     src=" {{ product.featured_image.url }} ">
                                 {% endif %}
                             </div>
-                            <a href="{% url 'product_detail' product.slug %}" class="product-link">
-                                <h2 class="card-title">{{ product.name }}</h2>
+                            <a href="{% url 'product_detail' product.slug %}" class="product-link text-center">
+                                <h5 class="card-title">{{ product.name }}</h2>
                                 <p class="card-text">${{ product.price }}</p>
                             </a>
                         </div>
