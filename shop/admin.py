@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Comment
+from .models import Product, Category
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -12,14 +12,4 @@ class ProductAdmin(SummernoteModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 
 
-@admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
-    list_filter = ("approved", "created_on")
-    list_display = ("username", "body", "product", "created_on", "approved")
-    search_fields = ["username", "email", "body"]
-    actions = [
-        "approved_comments",
-    ]
-
-    def approve_comments(self, request, queryset):
-        queryset.update(approved=True)
+admin.site.register(Category)
