@@ -39,15 +39,14 @@
                             Shop
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'category' 'Tops' %}">Tops</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="{% url 'category' 'Bottoms' %}">Bottoms</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Accessories</a></li>
+                            {% for category in categories %}
+                                <li><a class="dropdown-item" href="{% url 'category' cstr=category.name %}">{{ category.name }}</a></li>
+                                {% if not forloop.last %}
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </li>
                 </ul>

@@ -12,7 +12,9 @@ from .forms import ProductForm
 def CategoryView(request, cstr):
     category = Category.objects.get(name=cstr)
     products = Product.objects.filter(category=category)
-    return render(request, "category.html", {"products":products, "category":category})
+    categories = Category.objects.all()
+    
+    return render(request, "category.html", {"products":products, "category":category, "categories":categories})
 
 
 class ProductList(generic.ListView):
