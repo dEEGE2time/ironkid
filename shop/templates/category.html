@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row shop-title">
+        <h2>{{ category }}</h2>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-4 left">
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-md-3">
+                        <div class="card md-3">
+                            <div class="card-body">
+                                {% if "placeholder" in product.featured_image.url %}
+                                <img class="card-img-top"
+                                    src="https://asset.cloudinary.com/dowbhp8px/7e8567f6a714f3fa2b06de300982d769">
+                                {% else %}
+                                <img class="card-img-top"
+                                    src=" {{ product.featured_image.url }} ">
+                                {% endif %}
+                            </div>
+                            <a href="{% url 'product_detail' product.slug %}" class="product-link text-center">
+                                <h5 class="card-title">{{ product.name }}</h2>
+                                <p class="card-text">${{ product.price }}</p>
+                            </a>
+                        </div>
+                    </div>
+                {% if forloop.counter|divisibleby:4 %}
+                </div>
+                <div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; PREV</a></li>
+            {% endif %}
+            {% if page_bj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}">NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+{% endblock %}

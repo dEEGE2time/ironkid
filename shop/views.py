@@ -1,12 +1,18 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 
 from django.contrib.auth.mixins import (
     UserPassesTestMixin, LoginRequiredMixin
 )
 
-from .models import Product
+from .models import Product, Category
 from .forms import ProductForm
+
+
+def CategoryView(request, cstr):
+    category = Category.objects.get(name=cstr)
+    products = Product.objects.filter(category=category)
+    return render(request, "category.html", {"products":products, "category":category})
 
 
 class ProductList(generic.ListView):
