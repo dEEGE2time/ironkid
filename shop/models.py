@@ -22,7 +22,7 @@ class Product(models.Model):
     name = models.CharField(max_length=80, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=0)
-    size = models.CharField(choices=SIZES, default=0)
+    size = models.CharField(max_length=3, choices=SIZES, default=0)
     price = models.FloatField()
     description = models.TextField()
     featured_image = CloudinaryField("image", default="placeholder")
