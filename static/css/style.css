@@ -63,6 +63,11 @@ main {
 
 /* Product Detail */
 
+.detail-return {
+  text-decoration: none;
+  color: black;
+}
+
 /* Footer */
 
 footer {
