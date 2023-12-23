@@ -8,7 +8,7 @@
             <h1 class="cart-title">CART</h1>
         </div>
     </div>
-    <div class="row justify-content-center pt-2 border border-top-0 border-dark">
+    <div class="row justify-content-center pt-2 pb-2 border border-top-0 border-dark">
         <div class="col-4 align-self-center text-center">
             {% if "placeholder" in product.featured_image.url %}
             <img src="https://asset.cloudinary.com/dowbhp8px/7e8567f6a714f3fa2b06de300982d769" width="100%">
@@ -29,7 +29,7 @@
     </div>
     <div class="row justify-content-center pt-2 border border-top-0 border-dark ">
             <a href="#" class="btn btn-dark checkout w-75">PROCEED TO CHECKOUT</a>
-            <a href="#" class="cart-return text-center">Back</a>
+            <a href="{% url 'product_detail' slug=product.slug %}" class="cart-return text-center">Back</a>
     </div>
 </div>
 

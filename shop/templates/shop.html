@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <div class="col-12 mt-4 left">
-            <div class="row">
+            <div class="row pb-3">
                 {% for product in product_list%}
                 <div class="col-md-3">
                     <div class="card md-3">
@@ -28,7 +28,7 @@
                 </div>
                 {% if forloop.counter|divisibleby:4 %}
             </div>
-            <div class="row">
+            <div class="row pb-3">
                 {% endif %}
                 {% endfor %}
             </div>
