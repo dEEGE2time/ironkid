@@ -3,33 +3,35 @@
 {% block content %}
 
 <div class="container">
-    <div class="row shop-title">
-        <h2>{{ category }}</h2>
+    <div class="row shop-title text-center">
+        <h3>{{ category }}</h3>
     </div>
     <div class="row">
         <div class="col-12 mt-4 left">
-            <div class="row">
+            <div class="row pb-3">
                 {% for product in products %}
-                    <div class="col-md-3">
-                        <div class="card md-3">
-                            <div class="card-body">
+                <div class="col-md-3">
+                    <div class="card md-3 h-100" style="cursor: pointer;"
+                        onclick="window.location.href='{% url 'product_detail' product.slug %}';">
+                        <div class="d-flex flex-column">
+                            <div class="card-body p-3 h-100">
                                 {% if "placeholder" in product.featured_image.url %}
                                 <img class="card-img-top"
                                     src="https://asset.cloudinary.com/dowbhp8px/7e8567f6a714f3fa2b06de300982d769">
                                 {% else %}
-                                <img class="card-img-top"
-                                    src=" {{ product.featured_image.url }} ">
+                                <img class="card-img-top" src=" {{ product.featured_image.url }} ">
                                 {% endif %}
                             </div>
-                            <a href="{% url 'product_detail' product.slug %}" class="product-link text-center">
-                                <h5 class="card-title">{{ product.name }}</h2>
+                            <div class="product-link text-center">
+                                <h6 class="card-title">{{ product.name }}</h6>
                                 <p class="card-text">${{ product.price }}</p>
-                            </a>
+                            </div>
                         </div>
                     </div>
-                {% if forloop.counter|divisibleby:4 %}
                 </div>
-                <div class="row">
+                {% if forloop.counter|divisibleby:4 %}
+            </div>
+            <div class="row pb-3">
                 {% endif %}
                 {% endfor %}
             </div>
