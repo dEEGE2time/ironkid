@@ -15,7 +15,7 @@
                     <hr>
                     <p class="post-subtitle">Size: {{ product.size }}</p>
                     <div class="text-center">
-                        <button class="btn btn-dark primary mt-5 w-100">BUY</button>
+                        <a href="{% url 'cart:cart_current' product_slug=product.slug %}" class="btn btn-dark primary mt-5 w-100">BUY</a>
                     </div>
                 </div>
 

@@ -69,10 +69,19 @@ footer {
   margin-bottom: 0;
 }
 
+.cart-ind-title {
+  text-decoration: none;
+  color: black;
+}
+
 .cart-ind-price {
   margin-bottom: 1.5rem;
 }
 
 .cart-desc {
   margin-bottom: 0.5rem;
+}
+
+.checkout {
+  margin: 72px 0 72px;
 }

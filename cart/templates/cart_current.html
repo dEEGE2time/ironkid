@@ -3,26 +3,27 @@
 {% block content %}
 
 <div class="container mt-5 w-50">
-    <div class="row justify-content-center border">
+    <div class="row justify-content-center border border-dark">
         <div class="col-xs-6 align-self-center text-center bg-light">
             <h1 class="cart-title">CART</h1>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <hr>
-    </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center pt-2 border border-top-0 border-dark">
         <div class="col-4 align-self-center text-center bg-light">
             Image
         </div>
         <div class="col-8 align-self-center bg-light">
-            <a href="#"><h6>Title</h6></a>
+            <a href="#" class="cart-ind-title">
+                <h6>{{ product.name }}yurr</h6>
+            </a>
             <p class="cart-ind-price">Price</p>
             <p class="cart-desc">Size</p>
             <p class="cart-desc">Description</p>
         </div>
     </div>
-
+    <div class="row justify-content-center pt-2 border border-top-0 border-dark">
+        <button class="btn btn-dark w-75 checkout ">PROCEED TO CHECKOUT</button>
+    </div>
 </div>
 
 {% endblock content %}
