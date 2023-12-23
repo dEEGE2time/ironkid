@@ -2,27 +2,34 @@
 
 {% block content %}
 
-<div class="container mt-5 w-50">
+<div class="container mt-5 mb-5 w-50">
     <div class="row justify-content-center border border-dark">
-        <div class="col-xs-6 align-self-center text-center bg-light">
+        <div class="col-xs-6 align-self-center text-center">
             <h1 class="cart-title">CART</h1>
         </div>
     </div>
     <div class="row justify-content-center pt-2 border border-top-0 border-dark">
-        <div class="col-4 align-self-center text-center bg-light">
-            Image
+        <div class="col-4 align-self-center text-center">
+            {% if "placeholder" in product.featured_image.url %}
+            <img src="https://asset.cloudinary.com/dowbhp8px/7e8567f6a714f3fa2b06de300982d769" width="100%">
+            {% else %}
+            <img src="{{ product.featured_image.url }}" width="100%">
+            {% endif %}
         </div>
-        <div class="col-8 align-self-center bg-light">
+        <div class="col-8 align-items-stretch">
             <a href="#" class="cart-ind-title">
-                <h6>{{ product.name }}yurr</h6>
+                <h6>{{ product.name }}</h6>
             </a>
-            <p class="cart-ind-price">Price</p>
-            <p class="cart-desc">Size</p>
+            <p class="cart-ind-price">$ {{ product.price }}</p>
+            <p class="cart-info">Size: {{ product.size }}</p>
             <p class="cart-desc">Description</p>
+            <p class="cart-info">{{ product.description }}</p>
+
         </div>
     </div>
-    <div class="row justify-content-center pt-2 border border-top-0 border-dark">
-        <button class="btn btn-dark w-75 checkout ">PROCEED TO CHECKOUT</button>
+    <div class="row justify-content-center pt-2 border border-top-0 border-dark ">
+            <a href="#" class="btn btn-dark checkout w-75">PROCEED TO CHECKOUT</a>
+            <a href="#" class="cart-return text-center">Back</a>
     </div>
 </div>
 
