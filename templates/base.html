@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <title>IronKid</title>
+    <title>Ironkid</title>
 
 
     <meta charset="UTF-8">
@@ -44,12 +44,13 @@
                                 <hr class="dropdown-divider">
                             </li>
                             {% for category in categories %}
-                                <li><a class="dropdown-item" href="{% url 'category' cstr=category.name %}">{{ category.name }}</a></li>
-                                {% if not forloop.last %}
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                {% endif %}
+                            <li><a class="dropdown-item"
+                                    href="{% url 'category' cstr=category.name %}">{{ category.name }}</a></li>
+                            {% if not forloop.last %}
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            {% endif %}
                             {% endfor %}
                         </ul>
                     </li>
@@ -83,8 +84,41 @@
 
         {% endblock content %}
     </main>
-    <footer>
+    <footer class="mt-5 text-white" style="background-color:#2b2b2b;">
+        <div class="container p-4">
+            <section class="">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h6 class="text-uppercase">SHOP</h5>
 
+                        <ul class="list-unstyled mb-0 footer-text">
+                            <li><a href="{% url 'shop' %}" class="text-white footer-link">All categories</a></li>
+                            {% for category in categories %}
+                            <li><a class="text-white footer-link"
+                                    href="{% url 'category' cstr=category.name %}">{{ category.name }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h6 class="text-uppercase">CONNECT</h5>
+
+                        <ul class="list-unstyled mb-0 footer-text">
+                            <li>
+                                <a href="#!" class="text-white footer-link">Instagram</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white footer-link">Spotify</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white footer-link">TikTok</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
     </footer>
 </body>
 

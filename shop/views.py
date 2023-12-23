@@ -39,7 +39,7 @@ class ProductDetails(View):
         )
 
 
-class AddProduct(LoginRequiredMixin, generic.CreateView):
+class AddProduct(UserPassesTestMixin, generic.CreateView):
     """
     Add product view
     """
@@ -53,17 +53,23 @@ class AddProduct(LoginRequiredMixin, generic.CreateView):
         form.instance.user = self.request.user
         return super(AddProduct, self).form_valid(form)
     
+    def test_func(self):
+        return self.request.user.is_superuser
+    
 
-class DeleteProduct(generic.DeleteView):
+class DeleteProduct(UserPassesTestMixin, generic.DeleteView):
     """
     Delete a product
     """
     model = Product
     success_url = '/'
     template_name = 'product_confirm_delete.html'
+    
+    def test_func(self):
+        return self.request.user.is_superuser
 
 
-class EditProduct(generic.UpdateView):
+class EditProduct(UserPassesTestMixin, generic.UpdateView):
     """
     Update a product
     """
@@ -71,3 +77,6 @@ class EditProduct(generic.UpdateView):
     model = Product
     form_class = ProductForm
     success_url = '/'
+    
+    def test_func(self):
+        return self.request.user.is_superuser
