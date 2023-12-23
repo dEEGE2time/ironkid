@@ -17,7 +17,7 @@
             {% endif %}
         </div>
         <div class="col-8 align-items-stretch">
-            <a href="#" class="cart-ind-title">
+            <a href="{% url 'product_detail' slug=product.slug %}" class="cart-ind-title">
                 <h6>{{ product.name }}</h6>
             </a>
             <p class="cart-ind-price">$ {{ product.price }}</p>
