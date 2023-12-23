@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     
     # Apps
     'shop',
+    'cart',
     
     # Other
     'crispy_forms',
@@ -57,7 +58,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'cloudinary_storage',
     'django.contrib.staticfiles',
-    'djrichtextfield'
+    'djrichtextfield',
 ]
 
 SITE_ID = 1
