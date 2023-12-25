@@ -32,7 +32,7 @@ DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['ironkid-5e55eaaf060a.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['ironkid-5e55eaaf060a.herokuapp.com', 'localhost', '8000-deege2time-ironkid-ysc3rlwzng7.ws-eu107.gitpod.io']
 CSRF_TRUSTED_ORIGINS = ['https://ironkid-5e55eaaf060a.herokuapp.com']
 
 

@@ -5,30 +5,30 @@
 <div class="masthead">
     <div class="container pt-5">
         <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <div class="row px-5 align-middle h-100">
-                    <div class="text-center">
-                        <h5 class="post-title">{{ product.name }}</h1>
-                            <p class="post-subtitle">$ {{ product.price }}</p>
-                            <p class="post-subtitle">{{ product.description | safe }}</p>
-                            <hr>
-                            <p class="post-subtitle">Size: {{ product.size }}</p>
-                        <div class="text-center">
-                            <a href="{% url 'cart:cart_current' product_slug=product.slug %}"
-                                class="btn btn-dark primary mt-5 w-100">BUY</a>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-end">
-                        <a href="{% url 'shop' %}" class="detail-return text-center btn btn-dark h-5">Back</a>
-                    </div>
-                </div>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
+            <div class="d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in product.featured_image.url %}
                 <img src="https://asset.cloudinary.com/dowbhp8px/7e8567f6a714f3fa2b06de300982d769" width="100%">
                 {% else %}
                 <img src=" {{ product.featured_image.url }}" width="100%">
                 {% endif %}
+            </div>
+            <div class="col-md-6 masthead-text">
+                <div class="row px-5 align-middle h-100">
+                    <div class="text-center">
+                        <h5 class="post-title">{{ product.name }}</h5>
+                        <p class="post-subtitle">$ {{ product.price }}</p>
+                        <p class="post-subtitle">{{ product.description | safe }}</p>
+                        <hr>
+                        <p class="post-subtitle">Size: {{ product.size }}</p>
+                        <div class="text-center">
+                            <a href="{% url 'cart:cart_current' product_slug=product.slug %}"
+                                class="btn btn-dark primary mt-5 w-100">BUY</a>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-end pt-3">
+                        <a href="{% url 'shop' %}" class="detail-return text-center btn btn-dark h-5">Back</a>
+                    </div>
+                </div>
             </div>
             {% if user.is_superuser %}
             <div class="text-center my-5">
