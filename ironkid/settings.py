@@ -32,8 +32,8 @@ DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['ironkid-5e55eaaf060a.herokuapp.com/', 'localhost']
-CSRF_TRUSTED_ORIGINS = ['https://ironkid-5e55eaaf060a.herokuapp.com/']
+ALLOWED_HOSTS = ['ironkid-5e55eaaf060a.herokuapp.com', 'localhost']
+CSRF_TRUSTED_ORIGINS = ['https://ironkid-5e55eaaf060a.herokuapp.com']
 
 
 # Application definition
