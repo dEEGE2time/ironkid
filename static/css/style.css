@@ -22,12 +22,8 @@ main {
 
 /* Navbar */
 
-.cart {
-  color: rgba(0, 0, 0, 0.65);
-}
-
-.cart:hover {
-  color: black;
+#logo {
+  height: 43px;
 }
 
 /* Shop Page */

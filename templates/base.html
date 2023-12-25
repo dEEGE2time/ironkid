@@ -22,7 +22,10 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'shop' %}">IronKid</a>
+            <a class="navbar-brand" href="{% url 'shop' %}"><img
+                    id="logo"
+                    src="https://res.cloudinary.com/dowbhp8px/image/upload/v1703543525/ironkid_zh0mg4.png"
+                    alt="ironkid logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -91,30 +94,33 @@
                     <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                         <h6 class="text-uppercase">SHOP</h5>
 
-                        <ul class="list-unstyled mb-0 footer-text">
-                            <li><a href="{% url 'shop' %}" class="text-white footer-link">All categories</a></li>
-                            {% for category in categories %}
-                            <li><a class="text-white footer-link"
-                                    href="{% url 'category' cstr=category.name %}">{{ category.name }}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
+                            <ul class="list-unstyled mb-0 footer-text">
+                                <li><a href="{% url 'shop' %}" class="text-white footer-link">All categories</a></li>
+                                {% for category in categories %}
+                                <li><a class="text-white footer-link"
+                                        href="{% url 'category' cstr=category.name %}">{{ category.name }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                         <h6 class="text-uppercase">CONNECT</h5>
 
-                        <ul class="list-unstyled mb-0 footer-text">
-                            <li>
-                                <a href="https://www.instagram.com/" class="text-white footer-link" target="_blank">Instagram</a>
-                            </li>
-                            <li>
-                                <a href="https://open.spotify.com/" class="text-white footer-link" target="_blank">Spotify</a>
-                            </li>
-                            <li>
-                                <a href="https://www.tiktok.com/" class="text-white footer-link" target="_blank">TikTok</a>
-                            </li>
-                        </ul>
+                            <ul class="list-unstyled mb-0 footer-text">
+                                <li>
+                                    <a href="https://www.instagram.com/" class="text-white footer-link"
+                                        target="_blank">Instagram</a>
+                                </li>
+                                <li>
+                                    <a href="https://open.spotify.com/" class="text-white footer-link"
+                                        target="_blank">Spotify</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.tiktok.com/" class="text-white footer-link"
+                                        target="_blank">TikTok</a>
+                                </li>
+                            </ul>
                     </div>
                 </div>
             </section>
