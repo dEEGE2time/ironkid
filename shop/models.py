@@ -3,11 +3,15 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
 
+# Define choices for each field
 STATUS = ((0, "Out of Stock"), (1, "In Stock"))
 SIZES = (("XS", "XS"), ("S", "S"), ("M", "M"), ("L", "L"), ("XL", "XL"), ("XXL", "XXL"))
 
 
 class Category(models.Model):
+    """
+    Model for categories
+    """
     name = models.CharField(max_length=80, unique=True)
     
     class Meta:
@@ -19,6 +23,9 @@ class Category(models.Model):
     
 
 class Product(models.Model):
+    """
+    Model for products
+    """
     name = models.CharField(max_length=80, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=0)

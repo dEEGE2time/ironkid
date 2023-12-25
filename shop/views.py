@@ -10,6 +10,10 @@ from .forms import ProductForm
 
 
 def CategoryView(request, cstr):
+    """
+    Function to display products
+    belonging to a specific category
+    """
     category = Category.objects.get(name=cstr)
     products = Product.objects.filter(category=category)
     categories = Category.objects.all()
@@ -18,6 +22,10 @@ def CategoryView(request, cstr):
 
 
 class ProductList(generic.ListView):
+    """
+    ListView to display products
+    Paginated list of 10
+    """
     model = Product
     paginate_by = 10
     queryset = Product.objects.filter(status=1).order_by('category')
@@ -25,7 +33,11 @@ class ProductList(generic.ListView):
 
 
 class ProductDetails(View):
-
+    """
+    Product detail view
+    Get method to retrieve
+    and render details for product
+    """
     def get(self, request, slug, *args, **kwargs):
         queryset = Product.objects.filter(status=1)
         product = get_object_or_404(queryset, slug=slug)
@@ -42,6 +54,7 @@ class ProductDetails(View):
 class AddProduct(UserPassesTestMixin, generic.CreateView):
     """
     Add product view
+    test_func to make sure user is superuser
     """
     template_name = '../templates/add_product.html'
     model = Product
@@ -60,6 +73,7 @@ class AddProduct(UserPassesTestMixin, generic.CreateView):
 class DeleteProduct(UserPassesTestMixin, generic.DeleteView):
     """
     Delete a product
+    test_func to make sure user is superuser
     """
     model = Product
     success_url = '/'
@@ -72,6 +86,7 @@ class DeleteProduct(UserPassesTestMixin, generic.DeleteView):
 class EditProduct(UserPassesTestMixin, generic.UpdateView):
     """
     Update a product
+    test_func to make sure user is superuser
     """
     template_name = 'edit_product.html'
     model = Product

@@ -6,6 +6,11 @@ from .forms import ContactSellerForm
 
 
 def cart_current(request, product_slug):
+    """
+    Get product with specified slug,
+    return 404 page if not found
+    Render html along with product information
+    """
     product = get_object_or_404(Product, slug=product_slug)
     
     return render(request, "cart_current.html", {"product": product})
