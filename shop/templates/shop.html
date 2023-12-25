@@ -2,8 +2,8 @@
 
 {% block content %}
 
-<div class="container">
-    <img src="#" alt="hero-image">
+<div class="text-center bg-image">
+    <img class="hero-image" src="https://res.cloudinary.com/dowbhp8px/image/upload/v1703539563/hero-image_n4zhlp.png" alt="hero-image">
 </div>
 
 <div class="container">
@@ -15,7 +15,8 @@
             <div class="row pb-3">
                 {% for product in product_list%}
                 <div class="col-md-3">
-                    <div class="card md-3 h-100" style="cursor: pointer;" onclick="window.location.href='{% url 'product_detail' product.slug %}';">
+                    <div class="card md-3 h-100" style="cursor: pointer;"
+                        onclick="window.location.href='{% url 'product_detail' product.slug %}';">
                         <div class="d-flex flex-column h-100">
                             <div class="card-body p-3 h-100">
                                 {% if "placeholder" in product.featured_image.url %}
