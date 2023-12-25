@@ -57,12 +57,17 @@ main {
 }
 
 .card-price {
-  font-size: 12px
+  font-size: 12px;
 }
 
 .product-link {
   text-decoration: none;
   color: black;
+}
+
+.card-name {
+  font-size: 12px!important;
+  font-weight: bolder;
 }
 
 /* Product Detail */

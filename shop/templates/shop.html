@@ -16,7 +16,7 @@
                 {% for product in product_list%}
                 <div class="col-md-3">
                     <div class="card md-3 h-100" style="cursor: pointer;" onclick="window.location.href='{% url 'product_detail' product.slug %}';">
-                        <div class="d-flex flex-column">
+                        <div class="d-flex flex-column h-100">
                             <div class="card-body p-3 h-100">
                                 {% if "placeholder" in product.featured_image.url %}
                                 <img class="card-img-top"
@@ -25,9 +25,9 @@
                                 <img class="card-img-top" src=" {{ product.featured_image.url }} ">
                                 {% endif %}
                             </div>
-                            <div class="product-link text-center">
-                                <h6 class="card-title">{{ product.name }}</h6>
-                                <p class="card-text card-price pb-3">${{ product.price }}</p>
+                            <div class="product-link text-center d-flex flex-column ">
+                                <p class="card-name card-title flex-fill">{{ product.name }}</p>
+                                <p class="card-text card-price pb-3 flex-fill">${{ product.price }}</p>
                             </div>
                         </div>
                     </div>
