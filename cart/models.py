@@ -1,3 +1,20 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
+
+class Order(models.Model):
+    """
+    Model to place an order
+    """
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="customer")
+    fname = models.CharField(max_length=80)
+    lname = models.CharField(max_length=80)
+    email = models.EmailField(max_length=254)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ["-created_at"]
+    
+    def __str__(self):
+        return f"{self.fname} {self.lname}"
