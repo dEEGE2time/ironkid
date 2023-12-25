@@ -9,6 +9,7 @@ class ProductAdmin(SummernoteModelAdmin):
     Register the Product model
     with the custom admin options
     """
+
     list_filter = ("category", "status")
     list_display = ("name", "slug", "status")
     search_fields = ["name", "description"]

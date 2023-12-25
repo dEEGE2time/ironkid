@@ -12,7 +12,7 @@ def cart_current(request, product_slug):
     Render html along with product information
     """
     product = get_object_or_404(Product, slug=product_slug)
-    
+
     return render(request, "cart_current.html", {"product": product})
 
 
@@ -21,19 +21,20 @@ class ContactSeller(generic.CreateView):
     Contact seller view to buy
     a product
     """
-    template_name = 'contact_seller.html'
+
+    template_name = "contact_seller.html"
     form_class = ContactSellerForm
-    success_url ="/"
-    
+    success_url = "/"
+
     def get_product(self):
-        product_slug = self.kwargs.get('slug')
+        product_slug = self.kwargs.get("slug")
         return get_object_or_404(Product, slug=product_slug)
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['product'] = self.get_product()
+        context["product"] = self.get_product()
         return context
-    
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         form.instance.product = self.get_product()

@@ -8,7 +8,7 @@ class ContactSellerForm(forms.ModelForm):
     """
     Contact form when buying a product
     """
-    
+
     class Meta:
         model = Order
         fields = [
@@ -17,7 +17,7 @@ class ContactSellerForm(forms.ModelForm):
             "email",
             "content",
         ]
-        
+
         labels = {
             "fname": "First Name",
             "lname": "Last Name",
