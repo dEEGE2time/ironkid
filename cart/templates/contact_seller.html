@@ -2,6 +2,30 @@
 
 {% block content %}
 
+<div class="container">
+    <form method="POST" class="p-2">
+        <h1 class="text-center pb-5 pt-5">Contact Form</h1>
+        <div class="card mb-3 contact-card" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ product.featured_image.url }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h6 class="card-title">{{ product.name }}</h6>
+                        <p class="card-text">{{ product.price }} €</p>
+                        <p class="card-text">Size: {{ product.size }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form|crispy }}
+        <div class="text-center">
+            <button type="submit" class="btn btn-dark">Send</button>
+        </div>
+    </form>
+</div>
 
-
-{% endblock content %}
+{% endblock %}

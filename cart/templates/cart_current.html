@@ -20,7 +20,7 @@
             <a href="{% url 'product_detail' slug=product.slug %}" class="cart-ind-title">
                 <h6>{{ product.name }}</h6>
             </a>
-            <p class="cart-ind-price">$ {{ product.price }}</p>
+            <p class="cart-ind-price">{{ product.price }} €</p>
             <p class="cart-info">Size: {{ product.size }}</p>
             <p class="cart-desc">Description</p>
             <p class="cart-info">{{ product.description }}</p>
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="row justify-content-center pt-2 border border-top-0 border-dark ">
-            <a href="#" class="btn btn-dark checkout w-75">CONTACT SELLER</a>
+            <a href="{% url 'cart:contact_seller' slug=product.slug %}" class="btn btn-dark checkout w-75">CONTACT SELLER</a>
             <a href="{% url 'product_detail' slug=product.slug %}" class="cart-return text-center">Back</a>
     </div>
 </div>
